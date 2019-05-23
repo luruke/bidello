@@ -88,5 +88,6 @@ export default class Camera extends component(PerspectiveCamera) {
 }
 ```
 
+Look at [boilerthree](https://github.com/luruke/boilerthree) for a more complete example.
 
 🚨 Work in progress!
