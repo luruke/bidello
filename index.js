@@ -1,7 +1,7 @@
 class Bidello {
   constructor() {
-    // Keep in memory the last arguments fired with events
-    this.args = {};
+    // Keep in memory the last data fired with events
+    this.data = {};
 
     // Component Instances
     this.instances = [];
@@ -29,7 +29,7 @@ class Bidello {
     this.instances.push(instance);
     // TODO? give an ID to this instance?
 
-    // Eventually fire the events at start with the most recent args
+    // Eventually fire the events at start with the most recent data
     for (let k in this.fireAtStart) {
       this.fireMethod(instance, k);
     }
@@ -39,11 +39,16 @@ class Bidello {
     return `on${n.charAt(0).toUpperCase() + n.slice(1)}`;
   }
 
+  helpersAvailable() {
+    console.table(this.data);
+  }
+
   fireMethod(instance, name) {
     const method = instance[this.nameToMethod(name)];
 
     if (typeof method === 'function') {
-      method.apply(instance, this.args[name]);
+      // method.apply(instance, this.data[name]);
+      method.call(instance, this.data[name]);
     }
   }
 
@@ -51,20 +56,20 @@ class Bidello {
     name,
     fireAtStart = false,
     log = false,
-  }, args) {
-    this.args[name] = args;
+  }, data) {
+    this.data[name] = data;
 
     if (fireAtStart) {
       this.fireAtStart[name] = true;
     }
 
     if (log) {
-      console.log(`🔥 ${name} – ${args}`);
+      console.log(`🔥 ${name} – ${data}`);
     }
 
     if (name in this.listeners) {
       for (let i = 0; i < this.listeners[name].length; i++) {
-        this.listeners[name][i].apply(this, args);
+        this.listeners[name][i].call(this, data);
       }
     }
 
