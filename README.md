@@ -1,7 +1,7 @@
-# 👨‍🏫 Bidello
+# 👨‍🏫 bidello
 ### Don't leave your `Class` alone.
 
-Bidello is a simple class Mixin and event system.
+bidello is a simple class Mixin and event system.
 
 
 ## How to use it
@@ -58,7 +58,7 @@ bidello.trigger({ name: 'raf' });
 
 
 ## Example
-Together with `Bidello` i'm also shipping some generic helpers, currently containing `Viewport` and `Raf`.  
+Together with `bidello` i'm also shipping some generic helpers, currently containing `Viewport` and `Raf`.  
 I found using this pattern a lot on JS heavy apps/experiences, here's an example how a JS class may look like:
 
 ```javascript
