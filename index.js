@@ -10,6 +10,8 @@ class Bidello {
     this.listeners = {};
 
     this.fireAtStart = {};
+
+    setTimeout(this.helpersAvailable.bind(this), 100);
   }
 
   on(e, f) {
@@ -40,7 +42,9 @@ class Bidello {
   }
 
   helpersAvailable() {
-    console.table(this.data);
+    for (const k in this.data) {
+      console.log(`👨‍🏫 ${this.nameToMethod(k)}()`, this.data[k])
+    }
   }
 
   fireMethod(instance, name) {
@@ -56,7 +60,7 @@ class Bidello {
     name,
     fireAtStart = false,
     log = false,
-  }, data) {
+  }, data = {}) {
     this.data[name] = data;
 
     if (fireAtStart) {
@@ -82,8 +86,8 @@ const BidelloSingleton = new Bidello();
 const component = (superclass = class T {}) => class extends superclass {
   constructor(...args) {
     super(...args);
-    this.args = args;
-
+    this._args = args;
+    this.init && this.init();
     BidelloSingleton.register(this);
   }
 };

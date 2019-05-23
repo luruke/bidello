@@ -16,6 +16,8 @@ class Raf {
     this.startTime = window.performance.now();
     this.oldTime = this.startTime;
     this.isPaused = false;
+
+    this.onTick(this.startTime);
   }
 
   pause() {
