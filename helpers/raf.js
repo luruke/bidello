@@ -1,4 +1,4 @@
-import Bidello from '../index';
+import bidello from '../index';
 
 class Raf {
   constructor() {
@@ -31,7 +31,7 @@ class Raf {
       this.delta = (now - this.oldTime) / 1000;
       this.oldTime = now;
 
-      Bidello.trigger({ name: 'raf' }, {
+      bidello.trigger({ name: 'raf' }, {
         delta: this.delta,
         now
       });

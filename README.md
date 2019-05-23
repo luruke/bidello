@@ -25,7 +25,7 @@ class YourClass extends component() {
 You can extend your classes, and trigger methods by global events.
 
 ```javascript
-import Bidello, { component } from 'bidello';
+import bidello, { component } from 'bidello';
 
 class YourClass extends component() {
   onResize({ width, height }) {
@@ -42,16 +42,16 @@ class YourClass extends component() {
 };
 
 // Anywhere else in your code...
-Bidello.trigger({ name: 'resize', fireAtStart: true }, {
+bidello.trigger({ name: 'resize', fireAtStart: true }, {
   width: window.innerWidth,
   height: window.innerHeight,
 });
 
-Bidello.trigger({ name: 'onVisibility' }, {
+bidello.trigger({ name: 'onVisibility' }, {
   visible: false,
 });
 
-Bidello.trigger({ name: 'raf' });
+bidello.trigger({ name: 'raf' });
 ```
 
 > The `fireAtStart` flag, if true, will force the `onResize` method to be called for any new classes created in the future (automatically passing the last known data)

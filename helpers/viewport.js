@@ -1,4 +1,4 @@
-import Bidello from '../index';
+import bidello from '../index';
 
 class Viewport {
   constructor() {
@@ -25,7 +25,7 @@ class Viewport {
     this.height = this.calculateHeight();
     this.ratio = this.width / this.height;
 
-    Bidello.trigger({ name: 'resize', fireAtStart: true }, {
+    bidello.trigger({ name: 'resize', fireAtStart: true }, {
       width: this.width,
       height: this.height,
       ratio: this.ratio,
