@@ -1,6 +1,6 @@
 {
   "name": "bidello",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Don't leave your Class alone",
   "main": "index.js",
   "source": "index.js",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/luruke/bidello/issues"
   },
-  "homepage": "https://github.com/luruke/bidello#readme"
+  "homepage": "https://github.com/luruke/bidello#readme",
+  
+  "browserslist": ["last 2 Chrome versions"],
+  "engines": { "node" : ">= 8.9.3" }
 }
