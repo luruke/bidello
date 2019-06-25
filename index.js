@@ -36,7 +36,6 @@ class Bidello {
     const method = instance[this.nameToMethod(name)];
 
     if (typeof method === 'function') {
-      // method.apply(instance, this.data[name]);
       method.call(instance, this.data[name]);
     }
   }

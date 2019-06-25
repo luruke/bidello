@@ -1,6 +1,6 @@
 {
   "name": "bidello",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "description": "Don't leave your Class alone",
   "main": "index.js",
   "source": "index.js",
