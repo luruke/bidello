@@ -8,8 +8,6 @@ class Raf {
     this.pause = this.pause.bind(this);
     this.onTick = this.onTick.bind(this);
     this.start();
-
-    window.requestAnimationFrame(this.onTick);
   }
 
   start() {
