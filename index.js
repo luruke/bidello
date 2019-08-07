@@ -21,10 +21,17 @@ class Bidello {
 
   register(instance) {
     this.instances.push(instance);
-    // TODO? give an ID to this instance?
 
     for (let k in this.fireAtStart) {
       this.fireMethod(instance, k);
+    }
+  }
+
+  unregister(instance) {
+    const index = this.instances.indexOf(instance);
+
+    if (index > -1) {
+      this.instances.splice(index, 1);
     }
   }
 
@@ -73,6 +80,10 @@ const component = (superclass = class T {}) => class extends superclass {
     this._args = args;
     this.init && this.init();
     bidelloSingleton.register(this);
+  }
+
+  destroy() {
+    bidelloSingleton.unregister(this);
   }
 };
 
