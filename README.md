@@ -56,5 +56,27 @@ bidello.trigger({ name: 'raf' });
 
 > The `fireAtStart` flag, if true, will force the `onResize` method to be called for any new classes created in the future (automatically passing the last known data)
 
+## Extending an existing class using bidello
+You can also do stuff like:
+```javascript
+import { Object3D } from 'three.js';
+import { component } from 'bidello';
+
+class YourClass extends component(Object3D) {
+  onResize({ width, height }) {
+
+  }
+
+  onVisibility({ visible }) {
+
+  }
+
+  onRaf() {
+
+  }
+};
+```
+
+In this way `YouClass` extends `Object3D` plus `bidello` methods
 
 Look at [antipasto](https://github.com/luruke/antipasto) for a real example.
